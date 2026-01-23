@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Sandy ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body { 
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            /* Aquí pones tu imagen de fondo */
+            background-image: url("Sa.jpeg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding: 10px;
+        }
+
+        /* Overlay opcional para oscurecer/aclarar la imagen de fondo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(100, 172, 255, 0.3); /* Tono azul suave sobre la imagen */
+            z-index: -1;
+        }
+
+        .burbuja {
+            background: white;
+            color: #d81b60;
+            font-weight: bold;
+            padding: 15px 40px;
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        #tit { 
+            font-size: 28px; 
+            margin-bottom: 40px;
+        }
+
+        .sobre-wrapper { 
+            position: relative; 
+            width: 350px; 
+            height: 230px; 
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        
+        .sobre-trasero { 
+            position: absolute; 
+            width: 100%; 
+            height: 100%; 
+            background-color: #8783f7c6; 
+            border-radius: 8px; 
+            z-index: 1; 
+        }
+        
+        .sobre-frente {
+            position: absolute; 
+            width: 100%; 
+            height: 100%; 
+            background-color: #f74d4d;
+            clip-path: polygon(0 0, 0% 100%, 100% 100%, 100% 0, 50% 50%);
+            z-index: 3; 
+            border-radius: 8px;
+            transition: all 0.5s ease;
+        }
+        
+        .solapa {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 0; 
+            height: 0;
+            border-left: 175px solid transparent; 
+            border-right: 175px solid transparent;
+            border-top: 130px solid #ff86a5; 
+            z-index: 4;
+            transform-origin: top center;
+            transition: transform 0.6s ease;
+        }
+
+        .carta {
+            position: absolute; 
+            top: 10px; 
+            left: 15px; 
+            width: 320px; 
+            height: 200px;
+            background: white; 
+            padding: 30px; 
+            border-radius: 5px; 
+            z-index: 2; 
+            transition: all 0.8s ease;
+            opacity: 0;
+            overflow-y: auto; 
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        
+        .carta h2 { 
+            color: #d81b60; 
+            font-size: 18px; 
+            margin-bottom: 15px; 
+        }
+        
+        .carta p { 
+            color: #444; 
+            font-size: 14.5px; 
+            line-height: 1.6; 
+            margin: 10px 0; 
+        }
+
+        /* Estado abierto */
+        .sobre-wrapper.abierto .solapa { 
+            transform: rotateX(180deg); 
+        }
+        
+        .sobre-wrapper.abierto .carta {
+            transform: translateY(-240px); 
+            height: 500px; 
+            opacity: 1;
+            z-index: 100; 
+            width: 380px; 
+            left: -15px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .ocultar { 
+            opacity: 0 !important; 
+            transform: scale(0) !important; 
+            pointer-events: none;
+        }
+        
+        #ins { 
+            font-size: 22px; 
+            margin-top: 40px; 
+            animation: latido 1.5s infinite; 
+        }
+        
+        @keyframes latido { 
+            0%, 100% { transform: scale(1); } 
+            50% { transform: scale(1.08); } 
+        }
+
+        /* Scrollbar personalizada */
+        .carta::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .carta::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .carta::-webkit-scrollbar-thumb {
+            background: #d81b60;
+            border-radius: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 500px) {
+            .sobre-wrapper {
+                width: 300px;
+                height: 200px;
+            }
+            
+            .solapa {
+                border-left: 150px solid transparent; 
+                border-right: 150px solid transparent;
+                border-top: 110px solid #d45273;
+            }
+            
+            .carta {
+                width: 270px;
+                left: 15px;
+            }
+            
+            .sobre-wrapper.abierto .carta {
+                width: 320px;
+                left: -10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="tit" class="burbuja">Para mi amorcito ❤️</div>
+
+    <div class="sobre-wrapper" id="sobre">
+        <div class="solapa"></div>
+        <div class="sobre-frente"></div>
+        <div class="sobre-trasero"></div>
+        <div class="carta">
+            <h2>Para la niña de mis ojos gargajos ❤️</h2>
+            <p>Antes que todo buenos dias mi niña, simplemente queria decirte que ojala tengas un buen día y estoy ansiosa en volverte a ver.</p>
+            <p>También queria decirte que me haces muy feliz, quiero expresar lo mucho que te amo con esta carta que te hice para ti.</p>
+            <p>Gracias por ser tan paciente, porque se que no sera facil pero de verdad quiero tenerlo todo contigo.</p>
+            <p>Como no puedo estar cerca físicamente para entregarte una carta, pero me gusta la programación aparte de que eso no cambia lo importante: que pienso en ti, que te extraño y que me alegra que estes a mi lado. Aprecio los momentos, los detalles y hasta los silencios compartidos contigo, tú haces que todo eso valga la pena.</p>
+            <p>Así como ayer, hoy y mañana te seguiré amando, cada dia con mas intensidad mi niña, quiero y seras parte de mi vida, hasta cumplir nuestras promesas de estar juntas.</p>
+            <p style="color: #d81b60; font-weight: bold; font-size: 18px; margin-top: 20px;">Te amo muchisimo mi amor ❤️</p>
+            <p style="text-align: right; font-weight: bold; color: #d81b60; margin-top: 20px;">De: Banana | Para: Sandy</p>
+        </div>
+    </div>
+
+    <div id="ins" class="burbuja">Toca el sobre mi niña❤️</div>
+
+    <!-- Audio de fondo -->
+    <audio id="musicaFondo" loop>
+        <source src="The Marías - No One Noticed (Visualizer) (mp3cut.net).mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const sobre = document.getElementById('sobre');
+        const titulo = document.getElementById('tit');
+        const instruccion = document.getElementById('ins');
+        const musica = document.getElementById('musicaFondo');
+        let musicaIniciada = false;
+
+        sobre.addEventListener('click', function() {
+            // Iniciar la música en el primer clic
+            if (!musicaIniciada) {
+                musica.play().catch(function(error) {
+                    console.log("No se pudo reproducir la música automáticamente");
+                });
+                musicaIniciada = true;
+            }
+
+            this.classList.toggle('abierto');
+            
+            if (this.classList.contains('abierto')) {
+                titulo.classList.add('ocultar');
+                instruccion.classList.add('ocultar');
+            } else {
+                titulo.classList.remove('ocultar');
+                instruccion.classList.remove('ocultar');
+            }
+        });
+    </script>
+
+</body>
+</html>
